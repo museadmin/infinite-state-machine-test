@@ -1,4 +1,4 @@
-package com.github.museadmin.infinite_state_machine.classes;
+package com.github.museadmin.infinite_state_machine.test.classes;
 
 import com.github.museadmin.infinite_state_machine.common.action.Action;
 import com.github.museadmin.infinite_state_machine.common.utils.ZipDirectory;

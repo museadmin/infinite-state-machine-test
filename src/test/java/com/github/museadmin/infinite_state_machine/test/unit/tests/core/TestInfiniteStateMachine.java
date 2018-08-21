@@ -1,8 +1,9 @@
-package com.github.museadmin.infinite_state_machine.test.classes;
+package com.github.museadmin.infinite_state_machine.test.unit.tests.core;
 
+import com.github.museadmin.infinite_state_machine.test.classes.ISMTestActionPack;
 import com.github.museadmin.infinite_state_machine.core.InfiniteStateMachine;
 import com.github.museadmin.infinite_state_machine.core.action_pack.ISMCoreActionPack;
-import com.github.museadmin.infinite_state_machine.test.classes.support.TestSupportMethods;
+import com.github.museadmin.infinite_state_machine.test.unit.tests.support.TestSupportMethods;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,9 +34,15 @@ public class TestInfiniteStateMachine {
 
   @Test
   public void testInfiniteStateMachineImportsThirdPartyProperties() {
-    String tmpProps = TestSupportMethods.createTmpPropertiesFile(tmpFolder);
-    InfiniteStateMachine ism = new InfiniteStateMachine(tmpProps);
-    assertEquals(ism.getRdbms(), "sqlite3");
+      String tmpProps = TestSupportMethods.createTmpPropertiesFile(tmpFolder);
+      InfiniteStateMachine ism = new InfiniteStateMachine(tmpProps);
+      assertEquals(ism.getRdbms(), "sqlite3");
+  }
+
+  @Test
+  public void testIsmImportsTestActionPack() {
+    ISMTestActionPack ismTestActionPack = new ISMTestActionPack();
+    infiniteStateMachine.importActionPack(ismTestActionPack);
   }
 
 }
