@@ -10,7 +10,7 @@ import org.junit.rules.TemporaryFolder;
 import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-public class TestPropertyCache {
+public class TestPropertyCache extends TestSupportMethods {
 
   protected PropertyCache propertyCache;
 

@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -28,8 +29,10 @@ public class TestMessagingFramework extends TestSupportMethods {
 
   @Before
   public void setup() {
+    ClassLoader loader = Thread.currentThread().getContextClassLoader();
+    URL is = loader.getResource(PROPERTIES);
     ismCoreActionPack = new ISMCoreActionPack();
-    infiniteStateMachine = new InfiniteStateMachine();
+    infiniteStateMachine = new InfiniteStateMachine(is.getPath());
     infiniteStateMachine.importActionPack(ismCoreActionPack);
   }
 

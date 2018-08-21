@@ -22,6 +22,7 @@ public class TestSupportMethods {
   public static InfiniteStateMachine infiniteStateMachine;
   public static ISMCoreActionPack ismCoreActionPack;
   public Integer msgId = 1;
+  public final String PROPERTIES = "infinite_state_machine.properties";
 
   // Common Test Methods
 

@@ -1,18 +1,20 @@
 package com.github.museadmin.infinite_state_machine.test.unit.tests.core;
 
-import com.github.museadmin.infinite_state_machine.test.classes.ISMTestActionPack;
 import com.github.museadmin.infinite_state_machine.core.InfiniteStateMachine;
 import com.github.museadmin.infinite_state_machine.core.action_pack.ISMCoreActionPack;
+import com.github.museadmin.infinite_state_machine.test.classes.ISMTestActionPack;
 import com.github.museadmin.infinite_state_machine.test.unit.tests.support.TestSupportMethods;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import java.net.URL;
+
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TestInfiniteStateMachine {
+public class TestInfiniteStateMachine extends TestSupportMethods {
 
   protected InfiniteStateMachine infiniteStateMachine;
 
@@ -21,8 +23,10 @@ public class TestInfiniteStateMachine {
 
   @Before
   public void setup() {
+    ClassLoader loader = Thread.currentThread().getContextClassLoader();
+    URL is = loader.getResource(PROPERTIES);
     ISMCoreActionPack ismCoreActionPack = new ISMCoreActionPack();
-    infiniteStateMachine = new InfiniteStateMachine();
+    infiniteStateMachine = new InfiniteStateMachine(is.getPath());
     infiniteStateMachine.importActionPack(ismCoreActionPack);
   }
 
