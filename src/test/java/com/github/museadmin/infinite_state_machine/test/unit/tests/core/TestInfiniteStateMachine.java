@@ -32,12 +32,11 @@ public class TestInfiniteStateMachine extends TestSupportMethods {
 
   @Test
   public void testInfiniteStateMachineReadsRdbms() {
-    assertTrue(infiniteStateMachine.getRdbms().equalsIgnoreCase("sqlite3") ||
-      infiniteStateMachine.getRdbms().equalsIgnoreCase("postgres"));
+    assertTrue(infiniteStateMachine.getRdbms().equalsIgnoreCase("sqlite3"));
   }
 
   @Test
-  public void testInfiniteStateMachineImportsThirdPartyProperties() {
+  public void testInfiniteStateMachineImportsProperties() {
       String tmpProps = TestSupportMethods.createTmpPropertiesFile(tmpFolder);
       InfiniteStateMachine ism = new InfiniteStateMachine(tmpProps);
       assertEquals(ism.getRdbms(), "sqlite3");

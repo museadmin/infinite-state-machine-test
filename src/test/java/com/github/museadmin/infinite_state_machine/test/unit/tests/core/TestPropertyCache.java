@@ -7,6 +7,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import java.net.URL;
+
 import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -19,7 +21,10 @@ public class TestPropertyCache extends TestSupportMethods {
 
   @Before
   public void setUp(){
-    propertyCache = new PropertyCache("infinite_state_machine.properties");
+    propertyCache = new PropertyCache();
+    ClassLoader loader = Thread.currentThread().getContextClassLoader();
+    URL is = loader.getResource(PROPERTIES);
+    propertyCache.importProperties(is.getPath());
   }
 
   @Test
@@ -36,11 +41,5 @@ public class TestPropertyCache extends TestSupportMethods {
   public void testCacheDoesNotGetDefaultValueForKnownKey() {
     assertTrue(propertyCache.getProperty("rdbms", "default").equalsIgnoreCase("sqlite3") ||
         propertyCache.getProperty("rdbms", "default").equalsIgnoreCase("postgres"));
-  }
-  @Test
-  public void testImportPropertiesOverridesDefaults() {
-      String tmpProps = TestSupportMethods.createTmpPropertiesFile(tmpFolder);
-      propertyCache.importProperties(tmpProps);
-      assertEquals(propertyCache.getProperty("rdbms"), "sqlite3");
   }
 }
