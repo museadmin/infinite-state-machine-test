@@ -1,6 +1,6 @@
 package com.github.museadmin.infinite_state_machine.test.unit.tests.core;
 
-import com.github.museadmin.infinite_state_machine.lib.PropertyCache;
+import com.github.museadmin.infinite_state_machine.common.lib.PropertyCache;
 import com.github.museadmin.infinite_state_machine.test.unit.tests.support.TestSupportMethods;
 import org.junit.Before;
 import org.junit.Rule;
@@ -29,17 +29,21 @@ public class TestPropertyCache extends TestSupportMethods {
 
   @Test
   public void testCacheGetsValueForKnownKey() {
-    assertTrue(propertyCache.getProperty("rdbms").equalsIgnoreCase("sqlite3") ||
-        propertyCache.getProperty("rdbms").equalsIgnoreCase("postgres"));
+    assertTrue(propertyCache.getProperty("rdbms")
+      .equalsIgnoreCase("sqlite3")
+    );
   }
+
   @Test
   public void testCacheGetsDefaultValueForUnknownKey() {
     assertEquals("default",
         propertyCache.getProperty("xdbms", "default"));
   }
+
   @Test
   public void testCacheDoesNotGetDefaultValueForKnownKey() {
-    assertTrue(propertyCache.getProperty("rdbms", "default").equalsIgnoreCase("sqlite3") ||
-        propertyCache.getProperty("rdbms", "default").equalsIgnoreCase("postgres"));
+    assertTrue(propertyCache.getProperty("rdbms", "default")
+      .equalsIgnoreCase("sqlite3")
+    );
   }
 }
