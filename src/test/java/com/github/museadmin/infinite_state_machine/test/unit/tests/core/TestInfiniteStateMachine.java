@@ -32,7 +32,10 @@ public class TestInfiniteStateMachine extends TestSupportMethods {
 
   @Test
   public void testInfiniteStateMachineReadsRdbms() {
-    assertTrue(infiniteStateMachine.getRdbms().equalsIgnoreCase("sqlite3"));
+    assertTrue(
+      infiniteStateMachine.getRdbms().equalsIgnoreCase("sqlite3") ||
+        infiniteStateMachine.getRdbms().equalsIgnoreCase("mysql")
+    );
   }
 
   @Test
