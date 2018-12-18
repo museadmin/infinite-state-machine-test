@@ -1,6 +1,6 @@
 package com.github.museadmin.infinite_state_machine.test.unit.tests.support;
 
-import com.github.museadmin.infinite_state_machine.core.InfiniteStateMachine;
+import com.github.museadmin.infinite_state_machine.ism.InfiniteStateMachine;
 import com.github.museadmin.infinite_state_machine.core.action_pack.ISMCoreActionPack;
 import org.json.JSONObject;
 import org.junit.rules.TemporaryFolder;
