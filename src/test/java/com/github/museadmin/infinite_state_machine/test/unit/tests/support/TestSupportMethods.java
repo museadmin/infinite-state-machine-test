@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 /**
@@ -42,6 +43,7 @@ public class TestSupportMethods {
       Properties prop = new Properties();
       prop.setProperty("rdbms", "sqlite3");
       prop.setProperty("runRoot", tmpDir);
+      prop.setProperty("schema", "ism");
       prop.store(output,null);
 
     } catch (FileNotFoundException e) {
@@ -181,8 +183,8 @@ public class TestSupportMethods {
 
     String inbound = infiniteStateMachine.queryProperty("msg_in");
 
-    String msg_file = inbound + File.separator + fileName + ".msg";
-    String semaphore = inbound + File.separator + fileName + ".smp";
+    String msg_file = Paths.get(inbound, fileName + ".msg").toString();
+    String semaphore = Paths.get(inbound, fileName + ".smp").toString();
 
     try (Writer writer = new BufferedWriter(new OutputStreamWriter(
       new FileOutputStream(msg_file), "utf-8"))) {
