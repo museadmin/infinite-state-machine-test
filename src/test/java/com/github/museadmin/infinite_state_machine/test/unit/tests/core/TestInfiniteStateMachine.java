@@ -1,6 +1,6 @@
 package com.github.museadmin.infinite_state_machine.test.unit.tests.core;
 
-import com.github.museadmin.infinite_state_machine.core.InfiniteStateMachine;
+import com.github.museadmin.infinite_state_machine.ism.InfiniteStateMachine;
 import com.github.museadmin.infinite_state_machine.core.action_pack.ISMCoreActionPack;
 import com.github.museadmin.infinite_state_machine.test.classes.ISMTestActionPack;
 import com.github.museadmin.infinite_state_machine.test.unit.tests.support.TestSupportMethods;
